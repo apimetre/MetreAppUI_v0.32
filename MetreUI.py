@@ -156,7 +156,7 @@ class MainView(ui.View):
         self.add_subview(self.v)
         
         # Implementation of navigation view/mainview
-        self.l = self.create_l_buttonItems('Settings','|', 'Help')
+        self.l = self.create_l_buttonItems('Settings','|',  'Results','|', 'Help')
         self.left_button_items = self.l
         self.files_to_upload = os.listdir(self.cwd + '/data_files/converted_files/')
 
