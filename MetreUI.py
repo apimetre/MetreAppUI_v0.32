@@ -196,15 +196,9 @@ class MainView(ui.View):
                     
                 if sender.title=='Results':
                     results_page = pushed_view['bokeh_bg']
-                    try:
-                        bview = ui.load_view('bokehview') 
-                        bokeh_delegate = BokehDelegate(pushed_view['webview1'], self.cwd)
-                    except:
-                        os.chdir(self.cwd + '/MetreiOS/MetreAppUI_' + APP_VERSION)
-                        print(os.getcwd())
-                        print(os.path.exists(os.getcwd() + '/' + 'bokehview.pyui'))
-                        bview = ui.load_view('bokehview') 
-                        bokeh_delegate = BokehDelegate(pushed_view['webview1'], self.cwd)                                     
+                    bview = ui.load_view('bokehview') 
+                    bokeh_delegate = BokehDelegate(pushed_view['webview1'], self.cwd)
+                                   
 
                 if sender.title =='Help':
                     help_page = pushed_view['toolbarview']
@@ -217,12 +211,11 @@ class MainView(ui.View):
                     
         connect('Settings','file_view')
         connect('Help','toolbar')
-        try:
+        if os.path.exists(os.getcwd() + '/' + 'bokehview.pyui':
             connect('Results','bokehview')
-        except:
+        else:
             os.chdir(self.cwd + '/MetreiOS/MetreAppUI_' + APP_VERSION)
-            print(os.getcwd())
-            print(os.path.exists(os.getcwd() + '/' + 'bokehview.pyui'))
+            print(os.path.exists(os.getcwd() + '/' + 'bokehview.pyui')        
             connect('Results','bokehview')
 
 
