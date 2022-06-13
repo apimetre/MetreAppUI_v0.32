@@ -196,8 +196,15 @@ class MainView(ui.View):
                     
                 if sender.title=='Results':
                     results_page = pushed_view['bokeh_bg']
-                    bview = ui.load_view('bokehview') 
-                    bokeh_delegate = BokehDelegate(pushed_view['webview1'], self.cwd)
+                    try:
+                        bview = ui.load_view('bokehview') 
+                        bokeh_delegate = BokehDelegate(pushed_view['webview1'], self.cwd)
+                    except:
+                        os.chdir(self.cwd + '/MetreiOS/MetreAppUI_' + APP_VERSION)
+                        print(os.getcwd())
+                        print(os.path.exists(os.getcwd() + '/' + 'bokehview.pyui'))
+                        bview = ui.load_view('bokehview') 
+                        bokeh_delegate = BokehDelegate(pushed_view['webview1'], self.cwd)                                     
 
                 if sender.title =='Help':
                     help_page = pushed_view['toolbarview']
