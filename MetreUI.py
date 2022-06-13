@@ -211,9 +211,14 @@ class MainView(ui.View):
                     
         connect('Settings','file_view')
         connect('Help','toolbar')
+        print('here is where i am when i am looking for bokeh')
+        print(os.getcwd())
+        print(os.path.exists(os.getcwd() + '/' + 'bokehview.pyui'))
         if os.path.exists(os.getcwd() + '/' + 'bokehview.pyui'):
             connect('Results','bokehview')
         else:
+            print('got else')
+            print(os.getcwd())
             os.chdir(self.cwd + '/MetreiOS/MetreAppUI_' + APP_VERSION)
             print(os.path.exists(os.getcwd() + '/' + 'bokehview.pyui'))      
             connect('Results','bokehview')
