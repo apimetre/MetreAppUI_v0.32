@@ -219,7 +219,7 @@ class MainView(ui.View):
         else:
             print('got else')
             print(os.getcwd())
-            os.chdir(self.cwd + '/MetreiOS/MetreAppUI_' + APP_VERSION)
+            os.chdir(os.getcwd() + '/MetreiOS/MetreAppUI_' + APP_VERSION)
             print(os.path.exists(os.getcwd() + '/' + 'bokehview.pyui'))      
             connect('Results','bokehview')
 
