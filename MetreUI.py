@@ -217,8 +217,13 @@ class MainView(ui.View):
                     
         connect('Settings','file_view')
         connect('Help','toolbar')
-        connect('Results','bokehview')
-
+        try:
+            connect('Results','bokehview')
+        except:
+            os.chdir(self.cwd + '/MetreiOS/MetreAppUI_' + APP_VERSION)
+            print(os.getcwd())
+            print(os.path.exists(os.getcwd() + '/' + 'bokehview.pyui'))
+            connect('Results','bokehview')
 
 
     def create_l_buttonItems(self, *buttons):
